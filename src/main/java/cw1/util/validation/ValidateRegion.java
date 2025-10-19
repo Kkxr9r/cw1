@@ -34,7 +34,7 @@ public final class ValidateRegion {
         // first position must equal last for the region to be a valid region
         Position first = vertices.getFirst();
         Position last  = vertices.getLast();
-        boolean closed = first.getLng() == last.getLng() && first.getLat() == last.getLat();
+        boolean closed = first.getLng().equals(last.getLng()) && first.getLat().equals(last.getLat());
         if (!closed) {
             throw new InvalidDataException("region is not closed (first vertex must equal last), not a valid region");
         }

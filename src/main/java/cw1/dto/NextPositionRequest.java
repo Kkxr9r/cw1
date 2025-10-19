@@ -13,15 +13,15 @@ public class NextPositionRequest {
 
 
     private Position start;
-    private Double degrees;
+    private Double angle;
 
 
     public NextPositionRequest() {
         // needed by Jackson for deserialization
     }
 
-    public NextPositionRequest(Position start, Double degrees) {
+    public NextPositionRequest(Position start, Double angle) {
         this.start = start;
-        this.degrees = degrees;
+        this.angle = angle;
     }
 }

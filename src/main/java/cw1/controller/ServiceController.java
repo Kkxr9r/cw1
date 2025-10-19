@@ -61,7 +61,7 @@ public class ServiceController {
 
     @PostMapping("/nextPosition")
     public Position nextPosition(@RequestBody NextPositionRequest nextPositionRequest) {
-        return droneService.nextPosition(nextPositionRequest.getStart(), nextPositionRequest.getDegrees());
+        return droneService.nextPosition(nextPositionRequest.getStart(), nextPositionRequest.getAngle());
     }
 
     @PostMapping("/isInRegion")

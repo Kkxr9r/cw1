@@ -6,14 +6,14 @@ import static cw1.service.Constants.step_size;
 
 public class NextPosition {
 
-    private static double normalizeAngle(double degrees) {
-        double a = degrees % 360.0;
+    private static double normalizeAngle(double angle) {
+        double a = angle % 360.0;
         return a < 0 ? a + 360.0 : a;
     }
 
-    public static Position NextPosition(Position start, double degrees) {
+    public static Position NextPosition(Position start, double angle) {
         double stepSize = step_size;
-        double rad = Math.toRadians(normalizeAngle(degrees));
+        double rad = Math.toRadians(normalizeAngle(angle));
         double dx = Math.cos(rad) * stepSize; // lng
         double dy = Math.sin(rad) * stepSize; // lat
         return new Position(start.getLng() + dx, start.getLat() + dy);
