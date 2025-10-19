@@ -1,9 +1,14 @@
 package cw1.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@Setter
+@Getter
 public class Region {
     private String name;
     private List<Position> vertices = new ArrayList<>();
@@ -14,12 +19,6 @@ public class Region {
         this.name = name;
         this.vertices = vertices;
     }
-
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-
-    public List<Position> getVertices() { return vertices; }
-    public void setVertices(List<Position> vertices) { this.vertices = vertices; }
 
     @Override public String toString() {
         return "Region{name='" + name + "', vertices=" + vertices + '}';

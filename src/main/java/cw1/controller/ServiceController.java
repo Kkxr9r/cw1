@@ -1,6 +1,10 @@
 package cw1.controller;
 
 import cw1.dto.DistanceToRequest;
+import cw1.dto.IsCloseToRequest;
+import cw1.dto.IsInRegionRequest;
+import cw1.dto.NextPositionRequest;
+import cw1.model.Position;
 import cw1.service.DroneService;
 
 import org.slf4j.Logger;
@@ -46,23 +50,23 @@ public class ServiceController {
 
 
     @PostMapping("/distanceTo")
-    public double distanceTo(@RequestBody DistanceToRequest distanceToRequest) {
+    public Double distanceTo(@RequestBody DistanceToRequest distanceToRequest) {
         return droneService.calculateDistance(distanceToRequest.getPosition1(), distanceToRequest.getPosition2());
     }
 
     @PostMapping("/isCloseTo")
-    public String isCloseTo() {
-        return "";
+    public boolean isCloseTo(@RequestBody IsCloseToRequest isCloseToRequest) {
+        return droneService.isCloseTo(isCloseToRequest.getPosition1(), isCloseToRequest.getPosition2());
     }
 
     @PostMapping("/nextPosition")
-    public String nestPosition() {
-        return "";
+    public Position nextPosition(@RequestBody NextPositionRequest nextPositionRequest) {
+        return droneService.nextPosition(nextPositionRequest.getStart(), nextPositionRequest.getDegrees());
     }
 
     @PostMapping("/isInRegion")
-    public String isInRegion() {
-        return "";
+    public boolean isInRegion(@RequestBody IsInRegionRequest isInRegionRequest) {
+        return droneService.isInRegion(isInRegionRequest.getPosition(), isInRegionRequest.getRegion());
     }
 
 

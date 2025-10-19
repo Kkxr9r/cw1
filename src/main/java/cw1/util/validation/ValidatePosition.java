@@ -4,7 +4,7 @@ import cw1.model.Position;
 import cw1.exception.InvalidDataException;
 
 public final class ValidatePosition {
-    private ValidatePosition() {} // prevent new ValidatePosition()
+    private ValidatePosition() {}
 
     public static void validatePosition(Position p, String fieldName){
 
@@ -12,8 +12,15 @@ public final class ValidatePosition {
             throw new InvalidDataException(fieldName + " must be provided");
         }
 
-        double lng = p.getLng();
-        double lat = p.getLat();
+        Double lng = p.getLng();
+        Double lat = p.getLat();
+
+        if (lng == null) {
+            throw new InvalidDataException(fieldName + ".lng must be provided");
+        }
+        if (lat == null) {
+            throw new InvalidDataException(fieldName + ".lat must be provided");
+        }
 
         if (Double.isNaN(lng) || Double.isInfinite(lng)) {
         throw new InvalidDataException(fieldName + ".lng must be a finite number");

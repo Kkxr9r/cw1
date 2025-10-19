@@ -1,23 +1,23 @@
 package cw1.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Objects;
 
+@Getter
+@Setter
 public class Position {
-    private double lng;
-    private double lat;
+    private Double lng;
+    private Double lat;
 
     public Position() {}
 
-    public Position(double lng, double lat) {
+    public Position(Double lng, Double lat) {
         this.lng = lng;
         this.lat = lat;
     }
 
-    public double getLng() { return lng; }
-    public void setLng(double lng) { this.lng = lng; }
-
-    public double getLat() { return lat; }
-    public void setLat(double lat) { this.lat = lat; }
 
     @Override public boolean equals(Object o) {
         if (this == o) return true;
