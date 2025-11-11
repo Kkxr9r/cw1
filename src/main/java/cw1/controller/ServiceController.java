@@ -68,6 +68,4 @@ public class ServiceController {
     public boolean isInRegion(@RequestBody IsInRegionRequest isInRegionRequest) {
         return droneService.isInRegion(isInRegionRequest.getPosition(), isInRegionRequest.getRegion());
     }
-
-
 }
